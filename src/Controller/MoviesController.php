@@ -38,7 +38,7 @@ class MoviesController extends AppController
             'contain' => []
         ]);
 
-        $this->set('movie', $movie);
+        $this->set('mov', $movie);
         $this->set('_serialize', ['movie']);
     }
 

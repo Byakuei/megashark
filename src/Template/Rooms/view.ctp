@@ -39,10 +39,30 @@
     </table>
         <div class="related">
             <h4><?= __('Related Showtimes') ?></h4>
-                <ul>
-                <?php foreach($showtimes as $showtime ): ?>
-                    <li> <?=h($showtime->room)?> </li>  
-                <?php endforeach; ?>
-                </ul>
+            <table>
+                <tr>
+                    <td>L</td>
+                    <td>M</td>
+                    <td>M</td>
+                    <td>J</td>
+                    <td>V</td>
+                    <td>S</td>
+                    <td>D</td>
+                </tr>
+                <tr style="align:left;"">
+                    <td>8h</td>
+                </tr>
+                
+                        <table>
+                            <?php foreach($showtimes as $showtime ): ?>
+                                <tr>
+                                    <td> <?= h($showtime->movie->name) ?> </td>
+                                    <td> <?= h($showtime->start->format('H:i')) ?> </td>
+                                    <td> <?= h($showtime->end->format('H:i')) ?> </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </table>
+                
+            </table>
         </div>
 </div>

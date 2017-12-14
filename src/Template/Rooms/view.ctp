@@ -39,23 +39,35 @@
     </table>
         <div class="related">
             <h4><?= __('Related Showtimes') ?></h4>
+            
             <table>
                 <tr>
-                    <th>L</th>
-                    <th>M</th>
-                    <th>M</th>
+                    <th>L</th>             
+                    <th>M</th>                        
+                    <th>M</th>                        
                     <th>J</td>
-                    <th>V</th>
-                    <th>S</th>
-                    <th>D</th>
+                    <th>V</th>                     
+                    <th>S</th>                 
+                    <th>D</th> 
                 </tr>
-            
-                <?php for($i=1;$i<=7;$i++): ?>
-                         <?php foreach($showtimesThisWeek[$i] as $showtime): ?>
-                                <td> <?= print_r($showtime) ?> </td>         
-                            <? endforeach; ?>
-                <? endfor; ?>             
-                
+                <tr>         
+                    <td>
+                        <?php for($i=1;$i<=7;$i++): ?>    
+               
+                            <?php if(isset($showtimesThisWeek[$i])): ?>     
+                    
+                                <?php foreach($showtimesThisWeek[$i] as $showtime): ?> 
+                                     <ul>
+                                        <li style="list-style-type:disc"> <?= h($showtime->movie->name) ?> </li>
+                                        <li style="list-style-type:disc"> <?= h($showtime->movie->duration) ?> minutes </li>
+                                    </ul>
+                                <?php endforeach; ?>                  
+                            <?php endif; ?>
+                        <?php endfor; ?>    
+                    </td>
+                </tr>             
+                    
             </table>
+            
         </div>
 </div>

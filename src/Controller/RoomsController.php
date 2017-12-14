@@ -49,8 +49,16 @@ class RoomsController extends AppController
         ->where(['start >=' => $monday])
         ->where(['start <=' => $sunday]);
         
-        $this->set("showtimes", $showtimes);
+        $showtimesThisWeek = [];
+        foreach($showtimes as $value)
+        {
+            $showtimesThisWeek[$value->start->format('N')][] = $value;    
+            
+        }
+       
         
+        $this->set("showtimes", $showtimes);
+        $this->set("showtimesThisWeek", $showtimesThisWeek);
         
     }
 
